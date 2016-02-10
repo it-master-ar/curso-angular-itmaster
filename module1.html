@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>Curso JavaScript y jQuery Intensivo</title>
+
+  <meta name="description" content="">
+  <meta name="author" content="https://twitter.com/ianaya89">
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  <link rel="icon" type="image/png" sizes="96x96" href="img/favicon.ico">
+
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/reveal.min.css">
+  <link rel="stylesheet" href="css/ionic.css">
+
+  <link rel="stylesheet" href="lib/css/zenburn.css">
+
+  <style>
+    body {
+      background: #fff;
+      counter-reset: #E23030;
+    }
+
+    a {
+      color: tomato !important;
+    }
+
+    .reveal section img {
+      margin: 15px 0px !important;
+      max-width: 100% !important;
+      border: none !important;
+      background: none !important;
+      box-shadow: none !important;
+    }
+    </style>
+
+  <script>
+    document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+  </script>
+</head>
+
+<body>
+
+  <div class="reveal">
+    <div class="slides">
+
+      <section class="init">
+        <h2>Angular en Teoria</h2>
+        <img src="img/gifs/boring.gif" alt="boring" style="width: 50%">
+      </section>
+
+      <section>
+        <h2>MVC</h2>
+        <ul>
+          <li>Patron de arquitectura de Software.</li>
+          <li>Organizar y Modularizar Código (Capas).</li>
+          <li>Delegar y asignar responsabilidades.</li>
+          <li>Model, Vista y Controlador</li>
+        </ul>
+      </section>
+
+      <section>
+        <h3>Modelo</h3>
+        <p>Lógica de negocio.</p>
+      </section>
+
+      <section>
+        <h3>Vista</h3>
+        <p>Representación visual del modelo e interacción con el usuario.</p>
+      </section>
+
+      <section>
+        <h3>Controlador</h3>
+        <p>Intermediario, interactua con el modelo en respuesta a interacciones del usuario (Vista).</p>
+      </section>
+
+      <section>
+        <h3>Ventajas</h3>
+        <ul>
+          <li>Separación de conceptos.</li>
+          <li>Bajo nivel de acoplamiento (no side effects).</li>
+          <li>Facilita el testing.</li>
+          <li>Facilita la transferencia tecnologia.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Client Side MVC / MV*</h2>
+        <p>Nuevos roles en las aplicaciones client-side.</p>
+        <p>Más código y más responsabilidad.</p>
+      </section>
+
+      <section>
+        <h2>Client Side MVC / MV*</h2>
+        <p>Nuevos paradigmas de arquitectura.</p>
+        <p>Aplicaciones REST</p>
+        <p>Server-side centralizado (1 Server -> N Clients)</p>
+      </section>
+
+      <section>
+        <h2>Angular MVC / MV*</h2>
+        <ul>
+          <li>Modelo: representación de datos, interación con el servidor y persistencia.</li>
+          <li>Vista: visualización e interacción con los datos (GUI).</li>
+          <li>Controlador (VM): expone el modelo a la vista, reponde interacciones de usuario y maneja estados visuales.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h3>Vista</h3>
+        <p>Markup (HTML), filtros y expresiones (simples)</p>
+      </section>
+
+      <section>
+        <h3>Modelo</h3>
+        <p>JS (servicios), persistencia y lógica de negocio.</p>
+      </section>
+
+      <section>
+        <h3>Controller (VM)</h3>
+        <p>Eventos y vinculación de datos.</p>
+        <div class="red">NO manipula el DOM</div>
+      </section>
+
+      <section>
+        <h3>MVC o MVVM?</h3>
+        <p><b>MV* </b>"Whatever is whatever works for you"</p>
+        <img src="img/gifs/whatever.gif" alt="whatever">
+        <p>Seamos pragmáticos.</p>
+      </section>
+
+      <section>
+        <h2>Herramientas</h2>
+        <ul>
+          <li>
+            <a class="red" href="http://www.sublimetext.com/3" target="_blank">Sublime Text</a>,
+            <a href="Notepad++" target="_blank">Notepad++</a>,
+            <a href="http://brackets.io/" target="_blank">Brackets</a>,
+            <a href="https://atom.io/" target="_blank">Atom</a> o
+            <a href="https://c9.io/" target="_blank">Cloud9</a>
+            <a href="https://code.visualstudio.com/Docs" target="_blank">Visual Studio</a>
+          </li>
+          <li>Browsers: <span class="red">Chrome</span>, FireFox, IE, Safari y Opera</li>
+          <li>Browser Developer Tools</li>
+          <li>
+            <a href="http://codepen.io/" target="_blank" class="red">CodePen</a>,
+            <a href="http://jsbin.com/" target="_blank">JSBin</a> o
+            <a href="https://jsfiddle.net/" target="_blank">JSFiddle</a>
+          </li>
+          <li>
+            <a href="https://nodejs.org/en/" target="_blank">Node</a>,
+            <a href="https://git-scm.com/" target="_blank">Git</a>,
+            <a href="http://bower.io/" target="_blank">Bower</a>,
+            <a href="http://gruntjs.com/" target="_blank">Grunt</a>,
+            <a href="http://yeoman.io/" target="_blank">Yeoman</a>
+          </li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Agenda</h2>
+        <ul>
+          <li>4 Clases Mixtas (Teoria y Practica).</li>
+          <li>Miercoles 10, Jueves 11, Lunes 15 y Miércoles 17 (de 10 hs. a 13 hs).</li>
+          <li>Material y Diapositivas en <a href="https://github.com/ianaya89/curso-angular-itmaster" target="_blank">GitHub</a>.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Temas</h2>
+        <ul>
+          <li>Introducción</li>
+          <li>
+            Modulo 1: Teoria
+          </li>
+          <li>
+            Módulo 2: Hello World!
+          </li>
+          <li>
+            Módulo 3: Scope, Controllers & Modules
+          </li>
+          <li>
+            Módulo 3: Services, Factoires & Providers
+          </li>
+          <li>
+            Módulo 4: AJAX & REST
+          </li>
+          <li>
+            Módulo 5: Routes
+          </li>
+          <li>
+            Módulo 6: Yeoman
+          </li>
+          <li>
+            Módulo 6: Directivas Avanzadas
+          </li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Bibliografía Recomendada</h2>
+        <ul>
+        </ul>
+      </section>
+
+      <section>
+        <h2>y Ustedes?</h2>
+        <iframe src="//giphy.com/embed/lu8sliejbdeTe?html5=true" width="480" height="242" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+      </section>
+
+    </div>
+  </div>
+
+    <div class="index">
+    <a href="index.html">Index</a>
+  </div>
+
+  <script src="lib/js/head.min.js"></script>
+  <script src="js/reveal.min.js"></script>
+
+  <script>
+      // Full list of configuration options available here:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        slideNumber: true,
+
+        theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+        transition: Reveal.getQueryHash().transition || 'fade', // default/cube/page/concave/zoom/linear/fade/none
+
+        // Optional libraries used to extend on reveal.js
+        dependencies: [
+        { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+        { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+        ]
+      });
+
+      Reveal.addEventListener('slidechanged', function(event) {
+        var rightArrow = document.getElementsByClassName("navigate-right");
+        if (Reveal.isFirstSlide()) {
+          for(var i = 0; i < rightArrow.length; i++) {
+            rightArrow[i].style.borderLeftColor = "#4D84E0";
+          }
+        }
+        else {
+          for (var i = 0; i < rightArrow.length; i++) {
+            rightArrow[i].style.borderLeftColor = "#fff";
+          }
+        }
+      });
+
+    </script>
+
+  </body>
+  </html>
