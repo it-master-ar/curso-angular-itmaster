@@ -26,23 +26,14 @@ Ignacio Anaya
 
 ### Temario
 
-*Introducción
-*Angular en Teoria
-
-*Ambiente de Desarrollo
-
-*Hello World!
-
-*Primeros Pasos
-
-*Sope, Controllers & Modules
-
-*Services, Factoires & Providers
-
-*AJAX & REST
-
-*Routes
-
-*Yeoman
-
-*Directivas Avanzadas
+* Introducción
+* Angular en Teoria
+* Ambiente de Desarrollo
+* Hello World!
+* Primeros Pasos
+* Sope, Controllers & Modules
+* Services, Factoires & Providers
+* AJAX & REST
+* Routes
+* Yeoman
+* Directivas Avanzadas
