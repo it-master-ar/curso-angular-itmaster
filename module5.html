@@ -50,100 +50,111 @@
 
       <section>
         <h2>Modules, Scope & Controllers</h2>
-        <img src="img/gifs/first.gif" alt="hello">
-        <h3>Las Bases</h3>
       </section>
 
       <section>
-        <h2>Templating</h2>
-        <p>
-          Definir vistas estaticas (HTML) y modificar su contenido en tiempo de ejecución.
-        </p>
+        <h2>Modules</h2>
+        <li>Contenedores para componentes de coódigo que pertenezcan a una misma funcionalidad.</li>
+        <li>Pueden contener, controllers, directives, filters, services, providers, etc.</li>
+        <li>Pueden depender de otros modulos (Dependency Injection)</li>
+        <li>Modulo principal (ng-app)</li>
       </section>
 
       <section>
-        <h2>Data Binding</h2>
-        <p>
-          Vinculación de datos entre vistas y codigo (HTML y JS).
-        </p>
-        <p><small>Ida y vuelta.</small></p>
-      </section>
-
-      <section>
-        <h3>Características</h3>
+        <h3>Ventajas</h3>
         <ul>
-          <li>Modificar HTML sin implementaciones de código.</li>
-          <li>Evitar acoplamiento.</li>
-          <li>Sistema de scoping ($scope): sistema almacenamiento jerárquico de claves y valores.</li>
-          <li>Templates estaticos, data dinamica.</li>
+          <li>Declaración fácil de entender.</li>
+          <li>Reutilización de código.</li>
+          <li>Carga en paralelo (no importa el orden)</li>
+          <li>Facilitación de testeo.</li>
         </ul>
       </section>
 
       <section>
-        <h2>Expresiones</h2>
-        <p><i>{{ 1 + 1 }}</i></p>
-        <p><i>{{ 'hola' }}</i></p>
-        <p><i>{{ item[0] }}</i></p>
-        <p><i>{{ user.name }}</i></p>
-        <p><i>{{ true }}</i></p>
-        <p><i>{{ true && false }}</i></p>
-        <p><small>Tambien podemos encontrarlas dentro de directivas</small></p>
+        <h3>Sintaxis</h3>
+        <pre>
+          <code>
+            // Setter
+            angular.module('myApp', []);
+            angular.module('myApp', ['ngRoute']);
+
+            // Getter
+            angular.module('myApp');
+          </code>
+        </pre>
       </section>
 
       <section>
-        <h2>Directivas</h2>
-        <p>
-          Son marcadores sobre elementos del DOM (atributos, elementos, comentarios, clases) para manejar comportamiento y transformaciones.
-        </p>
-        <p><small>Podemos construir nuestras propios directivas.
-        </small></p>
+        <h3>Best Practices</h3>
+        <li>Mantener los modulos tan chicos como sea posible.</li>
+        <li>Isolados y sin acomplamiento, maximizar la reutilización.</li>
+        <li>Usar encadenamiento, evitar la asignacion de variables.</li>
       </section>
 
       <section>
-        <h3>Nativas</h3>
+        <h3><a href="http://codepen.io/ianaya89/pen/NxeKLK" target="_blank">Demo</a></h3>
+        <img src="img/gifs/demo.gif" alt="demo">
+      </section>
+
+      <section>
+        <h3>.run()</h3>
         <ul>
-          <li>ng-app</li>
-          <li>ng-init</li>
-          <li>ng-model ($scope)</li>
-          <li>ng-repeat</li>
-          <li>ng-click</li>
-          <li>ng-if</li>
-          <li>ng-switch</li>
-          <li>ng-class</li>
-          <li>ng-submit</li>
-          <li>ng-show/hide</li>
+          <li>Método de inicialización (post startup).</li>
+          <li>Puede haber N llamadas a <i>run()</i>.</li>
+          <li>Útil para codigo inicial (metodo main).</li>
         </ul>
       </section>
 
       <section>
-        <h2>Filtros</h2>
-        <p>
-          Formatean valores en expresiones para mostrar al usuario.
-        </p>
-        <p><i> {{ expression | filterName }}</i></p>
-        <p><i> {{ expression | filterName:argument }}</i></p>
-        <p><i> {{ expression | filterName1 | filterName2:argument }}</i></p>
-        <p><small>Podemos construir nuestros propios filtros.
-        </small></p>
+        <h3>$rootScope</h3>
+        <p>Scope padre (ng-app)</p>
+        <p>Sistema jerarquico (arbol)</p>
       </section>
 
       <section>
-        <h3>Nativos</h3>
+        <h2>Scope ($scope)</h2>
         <ul>
-          <li>currency</li>
-          <li>date</li>
-          <li>filter</li>
-          <li>json</li>
-          <li>limitTo</li>
-          <li>lowercase/uppercase</li>
-          <li>number</li>
-          <li>orderBy</li>
+          <li>Objetos jerarquicos de almacenamiento tipo clave valor.</li>
+          <li>Similar a herencia CSS o JavaScript.</li>
+          <li>Componente principal del motor de binding.</li>
+          <li>"Pegamento" que permite asociar un valor/variable con una vista (HTML).</li>
         </ul>
       </section>
 
       <section>
-        <h2><a href="http://codepen.io/ianaya89/pen/KVbPgO" target="_blank">Práctica</a></h2>
-        <img src="img/gifs/practice.gif" alt="practice">
+        <h3>Caracteristicas</h3>
+        <ul>
+          <li><i>$watch</i> observar mutaciones</li>
+          <li><i>$apply</i> propagar cambios (fuera del mundo Angular)</li>
+          <li>Puende ser isolados</li>
+          <li>Dan contexto a las expresiones</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Controllers</h2>
+        <ul>
+          <li>Función constructora que define y expande scopes.</li>
+          <li><i>ng-controller="MyController"</i></li>
+          <small>Un controller debe pertener a un module.</small>
+        </ul>
+      </section>
+
+      <section>
+        <h3>Sintaxis</h3>
+        <pre>
+          <code>
+            angular.module('myApp', [])
+                .controller('MyController', function($scope) {
+                    $scope.version = 1.1;
+                });
+          </code>
+        </pre>
+      </section>
+
+      <section>
+        <h3><a href="http://codepen.io/ianaya89/pen/NxeKLK" target="_blank">Demo</a></h3>
+        <img src="img/gifs/demo.gif" alt="demo">
       </section>
 
     </div>
