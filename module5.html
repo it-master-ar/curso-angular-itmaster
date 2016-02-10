@@ -49,43 +49,101 @@
     <div class="slides">
 
       <section>
-        <h2>Ambiente de Desarrollo</h2>
-        <img src="img/gifs/env.gif" alt="env">
+        <h2>Modules, Scope & Controllers</h2>
+        <img src="img/gifs/first.gif" alt="hello">
+        <h3>Las Bases</h3>
       </section>
 
       <section>
-        <h2>NodeJS & npm</h2>
-        <ul>
-          <li><a href="https://nodejs.org/en/download/" target="_blank">Descargar</a> e instalar NodeJS.</li>
-          <li><a href="https://github.com/creationix/nvm" target="_blank">Instalar</a> NMV (opcional).</li>
-          <li>Instalar <a href="https://www.npmjs.com/package/http-server" target="_blank">http-server</a>: <i>$ npm install -g http-server</i></li>
-        </ul>
-      </section>
-
-      <section>
-        <h2>
-          <a href="http://bower.io/" target="_blank">Bower</a>
-          </h2>
-          <p>Gestor de paquetes para aplicaciones web.</p>
-          <p>
-            <i>$ npm install -g bower</i>
-          </p>
-      </section>
-
-      <section>
-        <h2><a href="http://gulpjs.com/" target="_blank">Gulp</a></h2>
-        <p>Automatizador de tareas y flujos de trabajo.</p>
+        <h2>Templating</h2>
         <p>
-          <i>$ npm install --global gulp-cli</i>
+          Definir vistas estaticas (HTML) y modificar su contenido en tiempo de ejecución.
         </p>
       </section>
 
       <section>
-        <h2>Git</h2>
+        <h2>Data Binding</h2>
+        <p>
+          Vinculación de datos entre vistas y codigo (HTML y JS).
+        </p>
+        <p><small>Ida y vuelta.</small></p>
+      </section>
+
+      <section>
+        <h3>Características</h3>
         <ul>
-          <li><a href="https://git-scm.com/downloads" target="_blank">Descargar</a> e instalar Git.</li>
-          <li>Crear cuenta en <a href="https://github.com/" target="_blank">GitHub</a></li>
+          <li>Modificar HTML sin implementaciones de código.</li>
+          <li>Evitar acoplamiento.</li>
+          <li>Sistema de scoping ($scope): sistema almacenamiento jerárquico de claves y valores.</li>
+          <li>Templates estaticos, data dinamica.</li>
         </ul>
+      </section>
+
+      <section>
+        <h2>Expresiones</h2>
+        <p><i>{{ 1 + 1 }}</i></p>
+        <p><i>{{ 'hola' }}</i></p>
+        <p><i>{{ item[0] }}</i></p>
+        <p><i>{{ user.name }}</i></p>
+        <p><i>{{ true }}</i></p>
+        <p><i>{{ true && false }}</i></p>
+        <p><small>Tambien podemos encontrarlas dentro de directivas</small></p>
+      </section>
+
+      <section>
+        <h2>Directivas</h2>
+        <p>
+          Son marcadores sobre elementos del DOM (atributos, elementos, comentarios, clases) para manejar comportamiento y transformaciones.
+        </p>
+        <p><small>Podemos construir nuestras propios directivas.
+        </small></p>
+      </section>
+
+      <section>
+        <h3>Nativas</h3>
+        <ul>
+          <li>ng-app</li>
+          <li>ng-init</li>
+          <li>ng-model ($scope)</li>
+          <li>ng-repeat</li>
+          <li>ng-click</li>
+          <li>ng-if</li>
+          <li>ng-switch</li>
+          <li>ng-class</li>
+          <li>ng-submit</li>
+          <li>ng-show/hide</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Filtros</h2>
+        <p>
+          Formatean valores en expresiones para mostrar al usuario.
+        </p>
+        <p><i> {{ expression | filterName }}</i></p>
+        <p><i> {{ expression | filterName:argument }}</i></p>
+        <p><i> {{ expression | filterName1 | filterName2:argument }}</i></p>
+        <p><small>Podemos construir nuestros propios filtros.
+        </small></p>
+      </section>
+
+      <section>
+        <h3>Nativos</h3>
+        <ul>
+          <li>currency</li>
+          <li>date</li>
+          <li>filter</li>
+          <li>json</li>
+          <li>limitTo</li>
+          <li>lowercase/uppercase</li>
+          <li>number</li>
+          <li>orderBy</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2><a href="http://codepen.io/ianaya89/pen/KVbPgO" target="_blank">Práctica</a></h2>
+        <img src="img/gifs/practice.gif" alt="practice">
       </section>
 
     </div>
