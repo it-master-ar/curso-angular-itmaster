@@ -62,10 +62,12 @@
       <h2>REST</h2>
       <p>Arquitectura de software para sistemas hipermedia distribuidos.</p>
       <ul>
+        <li>Conjunto de estandares.</li>
         <li>Cliente/Servidor (sin estado)</li> <!-- el serivicio pierde sus datos-->
         <li>Conjunto de operaciones bien definidas: GET, POST, DELETE, PUT</li>
         <li>URI</li>
         <li>Uso de hipermedia (HTML, XML, JSON)</li>
+        <li>Performance y Escalabilidad</li>
       </ul>
       <small>REpresentational State Transfer</small>
     </section>
@@ -98,6 +100,7 @@
         <li>Se ejecuta en el cliente pero mantiene una comunicacion asincronica con el servidor.</li>
         <li>Podemos relizar modificaciones o consultas sobre una pagina sin necesidad de recargarla.</li>
         <li>Se utiliza el objeto de JavaScript: <i>XMLHttpRequest</i></li>
+        <li>SPA</li>
       </ul>
       <small>Asynchronous JavaScript And XML</small>
     </section>
@@ -124,10 +127,57 @@
     </section>
 
     <section>
-      <h3>Creando Peticiones con jQuery</h3>
-      <a href="http://codepen.io/ianaya89/pen/KpMLZa" target="_blank">Ejemplos</a>
-      <a href="http://api.jquery.com/category/ajax/" target="_blank">jQuery AJAX Methods</a>
+      <h2>$http</h2>
+        <p>"Built in" service para AJAX</p>
+        <pre>
+          <code>
+            angular.module('myApp', [])
+            .controller('MyController', function($http) {
+              var data = {"foo": "bar"};
+              $http({
+                url: '/user',
+                method: 'POST',
+                data: data,
+              })
+              .then(function(data, status, headers, config) {
+                console.log('Success!');
+                // called when the data is available
+              },
+              function(data, status, headers, config) {
+                console.log('Failure :(');
+                // called when an error occurs or
+                // the server returns data with an error status
+              });
+            });
+          </code>
+        </pre>
+        <small>Shorthand: <i>get(); put(); post(); delete(); jsonp()</i></small>
     </section>
+
+    <section>
+      <h2>Peticiones Cross Domain</h2>
+      <ul>
+        <li>CORS: Estandar que trabaja añadiendo nuevos encabezados HTTP (Servidor).</li>
+        <li>JSONP: Insercción de script con archivo json envuelto en una funcion <i>callback</i> (solo GET.)</li>
+        <pre>
+          <code>
+            $http({
+                method: 'JSONP',
+                url: url,
+                params: request
+              })
+              .then(function(result) {
+                $scope.analysis = result.data;
+              },
+              function(result) {
+                alert('error');
+              });            
+          </code>
+        </pre>
+      </ul>
+    </section>
+
+
 
     </div>
   </div>
