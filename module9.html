@@ -54,137 +54,77 @@
     <div class="slides">
 
       <section>
-        <h2>AJAX & REST</h2>
-        <img src="img/gifs/mt.gif" alt="mt">
+        <h2>Routing</h2>
+        <ul>
+          <li>Redireccionamiento client side</li>
+          <li>Mapea controladores con vistas a traves de URL's</li>
+          <li>Prefijo # (se puede evitar usando modo HTML5)</li>
+          <li>Intercepta URL's (posterior a la carga del index)</li>
+          <li>Modulo: ngRoute</li>
+        </ul>
       </section>
 
-    <section>
-      <h2>REST</h2>
-      <p>Arquitectura de software para sistemas hipermedia distribuidos.</p>
-      <ul>
-        <li>Conjunto de estandares.</li>
-        <li>Cliente/Servidor (sin estado)</li> <!-- el serivicio pierde sus datos-->
-        <li>Conjunto de operaciones bien definidas: GET, POST, DELETE, PUT</li>
-        <li>URI</li>
-        <li>Uso de hipermedia (HTML, XML, JSON)</li>
-        <li>Performance y Escalabilidad</li>
-      </ul>
-      <small>REpresentational State Transfer</small>
-    </section>
+      <section>
+        <h3>Componentes</h3>
+        <ul>
+          <li>Directiva ng-view (container).</li>
+          <li>Servicio $routeProvider, $route y $routeParams.</li>
+          <li>.when(): define un endopoint</li>
+          <li>.otherwise(): define endopoint general</li>
+        </ul>
+      </section>
 
-    <section>
-      <h2>JSON</h2>
-      <small>JavaScript Object Notation</small>
-      <p>Formato ligero para el intercambio de datos - Simple para humanos y maquinas.</p>
-      <ul>
-        <li>Simple y liviano</li>
-        <li>Facil de Parsear</li>
-        <li>Usado en JavaScript y en REST</li>
-      </ul>
-
-      <pre>
-        <code>
-          {
-           'nombre': 'Ignacio Anaya',
-           'edad': 25,
-           'lenguages': ['js', 'c#', 'node', 'python', 'ruby']
-          }
-        </code>
-      </pre>
-    </section>
-
-    <section>
-      <h2>AJAX</h2>
-      <ul>
-        <li>Tecnica para crear aplicaciones Interactivas. (RIA)</li>
-        <li>Se ejecuta en el cliente pero mantiene una comunicacion asincronica con el servidor.</li>
-        <li>Podemos relizar modificaciones o consultas sobre una pagina sin necesidad de recargarla.</li>
-        <li>Se utiliza el objeto de JavaScript: <i>XMLHttpRequest</i></li>
-        <li>SPA</li>
-      </ul>
-      <small>Asynchronous JavaScript And XML</small>
-    </section>
-
-    <section>
-      <h3>Creando Peticiones con JavaScript</h3>
-      <pre>
-        <code>
-          function getMyIP() {
-            var xmlhttp = new XMLHttpRequest();
-
-            xmlhttp.open('GET','http://api.hostip.info/get_html.php', false);
-            xmlhttp.send();
-
-            var response = xmlhttp.responseText;
-            alert(response);
-          }
-
-          getMyIP();
-        </code>
-
-      </pre>
-      <!-- http://codepen.io/ianaya89/pen/oXjrew -->
-    </section>
-
-    <section>
-      <h2>$http</h2>
-        <p>"Built in" service para AJAX</p>
+      <section>
+        <h3>Sintaxis</h3>
         <pre>
           <code>
-            angular.module('myApp', [])
-            .controller('MyController', function($http) {
-              var data = {"foo": "bar"};
-              $http({
-                url: '/user',
-                method: 'POST',
-                data: data,
-              })
-              .then(function(data, status, headers, config) {
-                console.log('Success!');
-                // called when the data is available
-              },
-              function(data, status, headers, config) {
-                console.log('Failure :(');
-                // called when an error occurs or
-                // the server returns data with an error status
-              });
-            });
+            angular.module('OWMApp', ['ngRoute'])
+              .config(['$routeProvider', function($routeProvider){
+                  $routeProvider
+                    .when('/', {
+                      templateUrl : 'home.html',
+                      controller : 'HomeCtrl'
+                    })
+                    .when('/city/:name', {
+                      templateUrl : 'city.html',
+                      controller : 'CityCtrl'
+                    })
+                    .otherwise('/error');
+              }]);
           </code>
         </pre>
-        <small>Shorthand: <i>get(); put(); post(); delete(); jsonp()</i></small>
-    </section>
+      </section>
 
-    <section>
-      <h2>Peticiones Cross Domain</h2>
-      <ul>
-        <li>CORS: Estandar que trabaja añadiendo nuevos encabezados HTTP (Servidor).</li>
-        <li>JSONP: Insercción de script con archivo json envuelto en una funcion <i>callback</i> (solo GET.)</li>
-        <pre>
-          <code>
-            $http({
-                method: 'JSONP',
-                url: url,
-                params: request
-              })
-              .then(function(result) {
-                $scope.analysis = result.data;
-              },
-              function(result) {
-                alert('error');
-              });
-          </code>
-        </pre>
-      </ul>
-    </section>
+      <section>
+        <h3>Propiedades</h3>
+        <ul>
+          <li>templateUrl</li>
+          <li>controller</li>
+          <li>resolve</li>
+        </ul>
+      </section>
 
-    <!-- <section>
-      <h2>$resource</h2>
-      <ul>
-        <li>Dependencia: ngResource (modulo externo)</li>
-        <li>M</li>
-      </ul>
-    </section> -->
+      <section>
+        <h2>.config()</h2>
+        <ul>
+          <li>Previos al metodo .run()</li>
+          <li>Solo pueden recibir providers y constants.</li>
+          <li>Previo a la declaracion de services (y factories).</li>
+        </ul>
+      </section>
 
+      <section>
+        <h2>$location</h2>
+        <ul>
+          <li>Version angular de window.location</li>
+          <li>La URL del browser es mapeada con este servicio</li>
+        </ul>
+      </section>
+
+      <section>
+        <h3><a href="#" target="_blank">Demo</a></h3>
+        <img src="img/gifs/demo.gif" alt="demo">
+      </section>
 
     </div>
   </div>
