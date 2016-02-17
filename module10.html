@@ -113,12 +113,57 @@
               return {
                   restrict: 'E',
                   transclude: true,
-                  template: '<div>Hello <span ng-transclude></span>!</div>',
-                  replace: true
+                  template: '<div>Hello <span ng-transclude></span>!</div>'
               }
           })
           </code>
         </pre>
+      </section>
+
+      <section>
+        <h3>link()</h3>
+        <p>Permite establecer y manipular el $scope de una directiva</p>
+        <pre>
+          <code>
+            .directive('myClick', function() {
+              return {
+                restrict: 'A',
+                link: function($scope, element, attrs) {
+                  element.on('click', function() {
+                    $scope.$apply(function() {
+                      $scope.$eval(attrs.myClick);
+                    });
+                  });
+                }
+            });
+          </code>
+        </pre>
+      </section>
+
+      <section>
+        <h3>$scope.$apply()</h3>
+        <ul>
+          <li>Notifica sobre las modificaciones NO angular</li>
+          <li>Servicios/directivas de angular builtin no lo necesitan</li>
+        </ul>
+      </section>
+
+      <section>
+        <h3>$scope.$eval()</h3>
+        <p>Evalua/Ejecuta una expresion angular y retorna el resultado</p>
+      </section>
+
+      <section>
+        <h3>Digest Cycle</h3>
+        <ul>
+          <li>Proceso principal para bindeo de datos. (Loop)</li>
+          <li>El primer post carga de controllers.</li>
+          <li>Aplica al current $scope y sus hijos.</li>
+          <li>Dirty checking sobre expresiones {{}} y $watch</li>
+          <li>Despues del ultimo watcher angular vuelve a chequear cambios (hasta 10 veces)</li>
+          <li>Digest manual: $scope.digest()</li>
+          <li>Digest automaticos: $http, $timeout, $interval, ngModel, links (routes)</li>
+        </ul>
       </section>
 
     </div>
