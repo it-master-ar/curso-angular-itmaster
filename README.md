@@ -10,14 +10,13 @@ Material y diapositivas del curso de AngularJS de IT Master.
 ___
 
 ### Version
-1.0
+  1.0
 
-### Autor
-Ignacio Anaya
-* [Twitter][0]
-* [StackOverflow][4]
-* [CodePen][3]
-* [Email][1]
+### Autor - Ignacio Anaya
+  * [Twitter][0]
+  * [StackOverflow][4]
+  * [CodePen][3]
+  * [Email][1]
 
 [1]:mailto:ignacio.anaya89@gmail.com
 [0]:http://twitter.com/ianaya89
@@ -25,15 +24,19 @@ Ignacio Anaya
 [4]:http://stackoverflow.com/users/4195328/ianaya89
 
 ### Temario
-
-* Introducción
-* Angular en Teoria
-* Ambiente de Desarrollo
-* Hello World!
-* Primeros Pasos
-* Sope, Controllers & Modules
-* Services, Factoires & Providers
-* AJAX & REST
-* Routes
-* Yeoman
-* Directivas Avanzadas
+  
+  * Introducción
+  * Angular en Teoria
+  * Ambiente de Desarrollo
+  * Hello World!
+  * Primeros Pasos
+  * Sope, Controllers & Modules
+  * Services, Factoires & Providers
+  * AJAX & REST
+  * Routes
+  * Yeoman
+  * Directivas Avanzadas
+  
+### Bibliografia
+  * [Docs](https://docs.angularjs.org/api)
+  * [ng-book](https://www.ng-book.com/)
