@@ -176,9 +176,7 @@
  <script src="lib/js/head.min.js"></script>
  <script src="js/reveal.min.js"></script>
 
- <script>
-      // Full list of configuration options available here:
-      // https://github.com/hakimel/reveal.js#configuration
+    <script>
       Reveal.initialize({
         controls: true,
         progress: true,
@@ -192,18 +190,6 @@
         { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
         { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
         ]
-      });
-      Reveal.addEventListener( 'slidechanged', function( event ) {
-        var rightArrow = document.getElementsByClassName("navigate-right");
-        if(Reveal.isFirstSlide()){
-          for(var i = 0; i < rightArrow.length; i++) {
-            rightArrow[i].style.borderLeftColor = "#4D84E0";
-          }
-        }else{
-          for(var i = 0; i < rightArrow.length; i++) {
-            rightArrow[i].style.borderLeftColor = "#fff";
-          }
-        }
       });
     </script>
 

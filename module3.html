@@ -97,20 +97,6 @@
         ]
       });
 
-      Reveal.addEventListener('slidechanged', function(event) {
-        var rightArrow = document.getElementsByClassName("navigate-right");
-        if (Reveal.isFirstSlide()) {
-          for(var i = 0; i < rightArrow.length; i++) {
-            rightArrow[i].style.borderLeftColor = "#4D84E0";
-          }
-        }
-        else {
-          for (var i = 0; i < rightArrow.length; i++) {
-            rightArrow[i].style.borderLeftColor = "#fff";
-          }
-        }
-      });
-
     </script>
 
   </body>
