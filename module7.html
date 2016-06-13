@@ -59,7 +59,7 @@
           <li>Objetos reusables e injectables</li>
           <li>Evitan redundancia y reducen el acoplamiento</li>
           <li>Reutilización de código</li>
-          <li>Compartem información y funcionalidad (controllers o services)</li>
+          <li>Comparten información y funcionalidad (controllers o services)</li>
           <li>Pueden tener dependencias de otros services</li>
           <li>Son singletons</li>
         </ul>
@@ -72,16 +72,17 @@
         <pre>
           <code>
             angular.module('app', [])
-              .factory("users", function() {
-                  return {
-                    all: [{name: 'john'}, {name: 'jane'}]
-                  };
-              };
-            })
-            .controller('Controller', ['$scope', 'users', function($scope, users) {
+              .factory('users', function() {
+                return {
+                  all: [{name: 'john'}, {name: 'jane'}],
+                  get: function(i) {
+                    return this.all[i];
+                  }
+                };
+              })
+              .controller('Controller', ['$scope', 'users', function($scope, users) {
                 $scope.users = users.all;
-            });
-          }]);
+              }]);
           </code>
         </pre>
       </section>
@@ -91,14 +92,16 @@
         <pre>
           <code>
             angular.module('app', [])
-              .service("users", function() {
+              .service('users', function() {
                 this.all = [{name: 'john'}, {name: 'jane'}];
-              };
-            })
-            .controller('Controller', ['$scope', 'users', function($scope, users) {
+
+                this.get = function(i) {
+                  return this.all[i];
+                };
+              })
+              .controller('Controller', ['$scope', 'users', function($scope, users) {
                 $scope.users = users.all;
-            });
-          }]);
+              }]);
           </code>
         </pre>
       </section>
