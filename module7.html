@@ -107,8 +107,18 @@
       </section>
 
       <section>
+        <h3>.service() vs. .factory()</h3>
+        <ul>
+          <li><b>Service</b>: Obtenemos una instancia de una función.</li>
+          <li><b>Factory</b>: Obtenemos referencia al valor que es retornado</li>
+        </ul>
+        <a href="http://blog.thoughtram.io/angular/2015/07/07/service-vs-factory-once-and-for-all.html" target="_blank">Tutorial</a>
+
+      </section>
+
+      <section>
         <h3>.value()</h3>
-        <p>No puede ser inyectado</p>
+        <p>No puede ser inyectado en <i>.config()</i></p>
         <pre>
           <code>
             angular.module('app', [])
@@ -132,6 +142,14 @@
               });
           </code>
         </pre>
+      </section>
+
+      <section>
+        <h3>.value() vs. .constant()</h3>
+        <ul>
+          <li><b>value</b>: Mutable, su valor puede ser modificado.</li>
+          <li><b>constant</b>: Ininmutable, su valor NO puede ser modificado.</li>
+        </ul>
       </section>
 
       <section>
