@@ -85,9 +85,9 @@
       <pre>
         <code>
           {
-           'nombre': 'Ignacio Anaya',
-           'edad': 25,
-           'lenguages': ['js', 'c#', 'node', 'python', 'ruby']
+           "nombre": "Ignacio Anaya",
+           "edad": 25,
+           "lenguages": ["js", "c#", "node", "python", "ruby"]
           }
         </code>
       </pre>
@@ -112,7 +112,7 @@
           function getMyIP() {
             var xmlhttp = new XMLHttpRequest();
 
-            xmlhttp.open('GET','http://api.hostip.info/get_html.php', false);
+            xmlhttp.open('GET','https://api.ipify.org?format=json', false);
             xmlhttp.send();
 
             var response = xmlhttp.responseText;
