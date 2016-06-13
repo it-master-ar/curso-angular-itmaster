@@ -161,29 +161,28 @@
         <li>JSONP: Insercción de script con archivo json envuelto en una funcion <i>callback</i> (solo GET.)</li>
         <pre>
           <code>
-            $http({
-                method: 'JSONP',
-                url: url,
-                params: request
-              })
+            $http.jsonp('https://api.ipify.org?format=json^callback=JSON_CALLBACK')
               .then(function(result) {
-                $scope.analysis = result.data;
+                console.log(result);
               },
-              function(result) {
-                alert('error');
+              function(err) {
+                console.log(err);
               });
           </code>
         </pre>
       </ul>
     </section>
 
-    <!-- <section>
-      <h2>$resource</h2>
+    <section>
+      <h2>Recursos</h2>
       <ul>
-        <li>Dependencia: ngResource (modulo externo)</li>
-        <li>M</li>
+        <li><a href="https://docs.angularjs.org/api/ngResource/service/$resource" target="_blank">angular $resource</a></li>
+        <li><a href="http://www.html5rocks.com/en/tutorials/es6/promises/" target="_blank">Promises</a></li>
+        <li><a href="http://martinfowler.com/articles/richardsonMaturityModel.html" target="_blank">REST</a></li>
+        <li><a href="https://developer.mozilla.org/es/docs/Web/HTTP/Access_control_CORS" target="_blank">CORS</a></li>
+
       </ul>
-    </section> -->
+    </section>
 
 
     </div>
