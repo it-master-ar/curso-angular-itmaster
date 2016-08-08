@@ -59,7 +59,7 @@
           <li>Objetos reusables e injectables</li>
           <li>Evitan redundancia y reducen el acoplamiento</li>
           <li>Reutilización de código</li>
-          <li>Compartem información y funcionalidad (controllers o services)</li>
+          <li>Comparten información y funcionalidad (controllers o services)</li>
           <li>Pueden tener dependencias de otros services</li>
           <li>Son singletons</li>
         </ul>
@@ -72,16 +72,17 @@
         <pre>
           <code>
             angular.module('app', [])
-              .factory("users", function() {
-                  return {
-                    all: [{name: 'john'}, {name: 'jane'}]
-                  };
-              };
-            })
-            .controller('Controller', ['$scope', 'users', function($scope, users) {
+              .factory('users', function() {
+                return {
+                  all: [{name: 'john'}, {name: 'jane'}],
+                  get: function(i) {
+                    return this.all[i];
+                  }
+                };
+              })
+              .controller('Controller', ['$scope', 'users', function($scope, users) {
                 $scope.users = users.all;
-            });
-          }]);
+              }]);
           </code>
         </pre>
       </section>
@@ -91,21 +92,33 @@
         <pre>
           <code>
             angular.module('app', [])
-              .service("users", function() {
+              .service('users', function() {
                 this.all = [{name: 'john'}, {name: 'jane'}];
-              };
-            })
-            .controller('Controller', ['$scope', 'users', function($scope, users) {
+
+                this.get = function(i) {
+                  return this.all[i];
+                };
+              })
+              .controller('Controller', ['$scope', 'users', function($scope, users) {
                 $scope.users = users.all;
-            });
-          }]);
+              }]);
           </code>
         </pre>
       </section>
 
       <section>
+        <h3>.service() vs. .factory()</h3>
+        <ul>
+          <li><b>Service</b>: Obtenemos una instancia de una función.</li>
+          <li><b>Factory</b>: Obtenemos referencia al valor que es retornado</li>
+        </ul>
+        <a href="http://blog.thoughtram.io/angular/2015/07/07/service-vs-factory-once-and-for-all.html" target="_blank">Tutorial</a>
+        <a href="https://gist.github.com/demisx/9605099" target="_blank">Tutorial 2</a>
+      </section>
+
+      <section>
         <h3>.value()</h3>
-        <p>No puede ser inyectado</p>
+        <p>No puede ser inyectado en <i>.config()</i></p>
         <pre>
           <code>
             angular.module('app', [])
@@ -129,6 +142,14 @@
               });
           </code>
         </pre>
+      </section>
+
+      <section>
+        <h3>.value() vs. .constant()</h3>
+        <ul>
+          <li><b>value</b>: Mutable, su valor puede ser modificado.</li>
+          <li><b>constant</b>: Ininmutable, su valor NO puede ser modificado.</li>
+        </ul>
       </section>
 
       <section>
@@ -165,8 +186,6 @@
   <script src="js/reveal.min.js"></script>
 
   <script>
-      // Full list of configuration options available here:
-      // https://github.com/hakimel/reveal.js#configuration
       Reveal.initialize({
         controls: true,
         progress: true,
@@ -183,7 +202,6 @@
         { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
         ]
       });
-
     </script>
 
   </body>

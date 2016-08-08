@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>Curso Angular</title>
+
+  <meta name="description" content="">
+  <meta name="author" content="https://twitter.com/ianaya89">
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  <link rel="icon" type="image/png" sizes="96x96" href="img/favicon.ico">
+
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/reveal.min.css">
+  <link rel="stylesheet" href="css/ionic.css">
+
+  <link rel="stylesheet" href="lib/css/zenburn.css">
+
+  <style>
+    body {
+      background: #fff;
+      counter-reset: #E23030;
+    }
+
+    a {
+      color: tomato !important;
+    }
+
+    .reveal section img {
+      margin: 15px 0px !important;
+      max-width: 100% !important;
+      border: none !important;
+      background: none !important;
+      box-shadow: none !important;
+    }
+    </style>
+
+  <script>
+    document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+  </script>
+</head>
+
+<body>
+
+  <div class="reveal">
+    <div class="slides">
+
+      <section class="init">
+        <h1>AngularJS</h1>
+        <img src="img/angular.png" alt="angular" style="width: 50%">
+        <h4>IT Master</h4>
+        <h5>by Ignacio Anaya - @ianaya89</h5>
+      </section>
+
+      <section>
+        <h2>Quién soy?</h2>
+        <h3>by Ignacio Anaya - <a href="https://twitter.com/ianaya89" target="_blank">@ianaya89</a></h3>
+        <h5>Software Architect - Web and Mobile Developments</h5>
+        <a href="mailto:ignacio.anaya89@gmail.com">ignacio.anaya89@gmail.com</a>
+        <br>
+        <ul>
+          <li><a href="https://twitter.com/ianaya89" target="_blank">Twitter</a></li>
+          <li><a href="https://github.com/ianaya89" target="_blank">GitHub</a></li>
+          <li><a href="http://codepen.io/ianaya89/" target="_blank">CodePen</a></li>
+          <li><a href="http://stackoverflow.com/users/4195328/ianaya89" target="_blank">Stack Overflow</a></li>
+          <li><a href="https://ar.linkedin.com/in/ianaya89" target="_blank">LinkedIn</a></li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Proyectos y Empresas</h2>
+        <img src="img/companies.png" alt="companies" style="width: 80%">
+      </section>
+
+      <section>
+        <h2>Tecnologias</h2>
+        <img src="img/technologies.png" alt="companies" style="width: 80%">
+      </section>
+
+      <section>
+        <h2>Herramientas</h2>
+        <ul>
+          <li>
+            <a class="red" href="http://www.sublimetext.com/3" target="_blank">Sublime Text</a>,
+            <a href="Notepad++" target="_blank">Notepad++</a>,
+            <a href="http://brackets.io/" target="_blank">Brackets</a>,
+            <a href="https://atom.io/" target="_blank">Atom</a> o
+            <a href="https://c9.io/" target="_blank">Cloud9</a>
+            <a href="https://code.visualstudio.com/Docs" target="_blank">Visual Studio</a>
+          </li>
+          <li>Browsers: <span class="red">Chrome</span>, FireFox, IE, Safari y Opera</li>
+          <li>Browser Developer Tools</li>
+          <li>
+            <a href="http://codepen.io/" target="_blank" class="red">CodePen</a>,
+            <a href="http://jsbin.com/" target="_blank">JSBin</a> o
+            <a href="https://jsfiddle.net/" target="_blank">JSFiddle</a>
+          </li>
+          <li>
+            <a href="https://nodejs.org/en/" target="_blank">Node</a>,
+            <a href="https://git-scm.com/" target="_blank">Git</a>,
+            <a href="http://bower.io/" target="_blank">Bower</a>,
+            <a href="http://gruntjs.com/" target="_blank">Grunt</a>,
+            <a href="http://yeoman.io/" target="_blank">Yeoman</a>
+          </li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Agenda</h2>
+        <ul>
+          <li>4 Clases Mixtas (Teoria y Practica).</li>
+          <li>Material y Diapositivas en <a href="https://github.com/ianaya89/curso-angular-itmaster" target="_blank">GitHub</a>.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Temas</h2>
+        <ol>
+          <li>Introducción</li>
+          <li>
+            Angular en Teoria
+          </li>
+          <li>
+            Ambiente de Desarrollo
+          </li>
+          <li>
+            Hello World!
+          </li>
+          <li>
+            Primeros Pasos
+          </li>
+          <li>
+            Modules, Scope & Controllers
+          </li>
+          <li>
+            Formularios
+          </li>
+          <li>
+            Services & Factories (Providers)
+          </li>
+          <li>
+            AJAX & REST
+          </li>
+          <li>
+            Routes
+          </li>
+          <li>
+            Gulp & Yeoman
+          </li>
+          <li>
+            Directivas Avanzadas
+          </li>
+        </ol>
+      </section>
+
+      <section>
+        <h2>Recursos Complementarios</h2>
+        <ul>
+          <li><a href="https://www.codeschool.com/courses/shaping-up-with-angular-js" target="_blank"> Code School</a></li>
+          <li><a href="https://www.ng-book.com/" target="_blank">ng-book</a></li>
+<<<<<<< HEAD
+          <li><a href="https://egghead.io/courses" target="_blank"></a>Egg Head</li>
+=======
+          <li><a href="https://egghead.io/courses" target="_blank">Egg Head</a></li>
+>>>>>>> gh-pages
+          <li><a href="https://docs.angularjs.org/api" target="_blank">Documentación</a></li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>y Ustedes?</h2>
+        <iframe src="//giphy.com/embed/lu8sliejbdeTe?html5=true" width="480" height="242" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+      </section>
+
+    </div>
+  </div>
+
+    <div class="index">
+    <a href="index.html">Index</a>
+  </div>
+
+  <script src="lib/js/head.min.js"></script>
+  <script src="js/reveal.min.js"></script>
+
+    <script>
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        slideNumber: true,
+
+        theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+        transition: Reveal.getQueryHash().transition || 'fade', // default/cube/page/concave/zoom/linear/fade/none
+
+        // Optional libraries used to extend on reveal.js
+        dependencies: [
+        { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+        { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+        ]
+      });
+    </script>
+
+  </body>
+  </html>
