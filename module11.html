@@ -59,11 +59,11 @@
       </section>
 
       <section>
-        <h3>Caracteristicas</h3>
+        <h3>HTTP Interceptors</h3>
         <ul>
-          <li>Concepto de componentes</li>
-          <li>Manipular del DOM (eventos y elementos)</li>
-          <li>directive()</li>
+          <li>Interceptan peticiones HTTP</li>
+          <li>Request, Response y Errors</li>
+          <li>Son factories</li>
         </ul>
       </section>
 
@@ -71,99 +71,40 @@
         <h3>Sintaxis</h3>
         <pre>
           <code>
-            angular.module('myApp', []);
-              directive('hello', function() {
+            angular.module('myApp')
+              .factory('userSession', function() {
                 return {
-                  template: '<strong>Hello!</strong>',
-                  restrict: 'E',
-              };
-            });
-          </code>
-        </pre>
-      </section>
-
-      <section>
-        <h3>restrict</h3>
-        <ul>
-          <li>E: Element</li>
-          <li>A: Attribute</li>
-          <li>C: Class</li>
-          <li>M: Comment (NO usar)</li>
-        </ul>
-        <small>Se pueden convinar</small>
-      </section>
-
-      <section>
-        <h3>template & templateUrl</h3>
-        <ul>
-          <li>template: html en linea</li>
-          <li>tempalteUrl: referencia a archivo HTML</li>
-        </ul>
-      </section>
-
-      <section>
-        <h3>transclusion</h3>
-        <ul>
-          <li>ng-transclude</li>
-          <li>Toma el innerHTML y lo agrega al elemento con la directiva</li>
-        </ul>
-        <pre>
-          <code>
-            .directive('hello', function() {
-              return {
-                  restrict: 'E',
-                  transclude: true,
-                  template: '<div>Hello <span ng-transclude></span>!</div>'
-              }
-          })
-          </code>
-        </pre>
-      </section>
-
-      <section>
-        <h3>link()</h3>
-        <p>Permite establecer y manipular el $scope de una directiva</p>
-        <pre>
-          <code>
-            .directive('myClick', function() {
-              return {
-                restrict: 'A',
-                link: function($scope, element, attrs) {
-                  element.on('click', function() {
-                    $scope.$apply(function() {
-                      $scope.$eval(attrs.myClick);
-                    });
-                  });
+                  loggedIn: false,
+                  token: '1234'
                 }
-            });
+              })
+              .factory('authInterceptor', function(userService, $location) {
+                return {
+                  request: function(config) {
+                      if (!userService.loggedIn) {
+                        return $location.path('/login');
+                      }
+
+                      config.headers['x-session-token'] = userService.token;
+
+                      return config;
+                  }
+                }
+              });
           </code>
         </pre>
       </section>
 
       <section>
-        <h3>$scope.$apply()</h3>
-        <ul>
-          <li>Notifica sobre las modificaciones NO angular</li>
-          <li>Servicios/directivas de angular builtin no lo necesitan</li>
-        </ul>
-      </section>
-
-      <section>
-        <h3>$scope.$eval()</h3>
-        <p>Evalua/Ejecuta una expresion angular y retorna el resultado</p>
-      </section>
-
-      <section>
-        <h3>Digest Cycle</h3>
-        <ul>
-          <li>Proceso principal para bindeo de datos. (Loop)</li>
-          <li>El primer post carga de controllers.</li>
-          <li>Aplica al current $scope y sus hijos.</li>
-          <li>Dirty checking sobre expresiones {{}} y $watch</li>
-          <li>Despues del ultimo watcher angular vuelve a chequear cambios (hasta 10 veces)</li>
-          <li>Digest manual: $scope.digest()</li>
-          <li>Digest automaticos: $http, $timeout, $interval, ngModel, links (routes)</li>
-        </ul>
+        <h3>Implementación</h3>
+        <pre>
+          <code>
+            angular.module('myApp', [])
+              .config(function($httpProvider) {
+                $httpProvider.interceptors.push('authInterceptor');
+              });
+          </code>
+        </pre>
       </section>
 
     </div>
